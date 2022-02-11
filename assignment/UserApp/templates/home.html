@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+
+
+<header style="text-align:center">
+	<form method="Post" enctype="multipart/form-data" action="{% url 'UserApp:postSubmitUrl' %}">
+		{% csrf_token %}
+		<input type="hidden" name="redirectTo" value={{request.path}}>
+		<ul>
+			{{postForm|crispy}}
+			<button type="submit">Submit</button>
+		</ul>
+	</form>
+</header>
